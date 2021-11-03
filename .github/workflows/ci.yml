@@ -18,7 +18,7 @@ jobs:
         uses: gradle/wrapper-validation-action@v1
       - name: Build with Gradle
         run: ./gradlew clean build
-      - name: "Snyk library issue test"
+      - name: "Snyk library issue test" 
         run: snyk test --all-projects --reachable || true 
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
