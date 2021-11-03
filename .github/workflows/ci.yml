@@ -19,7 +19,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build
       - name: "Snyk library issue test" 
-        run: snyk test --all-projects --reachable || true 
+        run: snyk test --all-projects --reachable || true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: "Snyk library issues to snyk.io"
