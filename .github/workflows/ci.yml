@@ -15,7 +15,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: Build with Gradle
-        run: ./gradlew check
+        run: ./gradlew clean build
       - name: "Snyk library issue test"
         run: snyk test --all-projects --reachable || true 
         env:
