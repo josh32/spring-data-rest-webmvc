@@ -38,6 +38,10 @@ configurations.all {
 //  maven { url "http://repo.springsource.org/libs-release" }
 //}
 
+repositories {
+  mavenCentral()
+}
+
 dependencies {
 
   // Logging
