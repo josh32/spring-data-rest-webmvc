@@ -1,15 +1,17 @@
 apply plugin: "java"
 apply plugin: "war"
-apply plugin: "tomcat"
-apply plugin: "idea"
+//apply plugin: "tomcat"
+//apply plugin: "idea"
 apply plugin: "maven"
 
 group = "org.springframework.data"
 version = "$sdRestVersion"
 archivesBaseName = "spring-data-rest-webmvc"
 
-project.sourceCompatibility = 1.6
-project.targetCompatibility = 1.6
+//project.sourceCompatibility = 1.6
+//project.targetCompatibility = 1.6
+project.sourceCompatibility = 1.8
+project.targetCompatibility = 1.8
 
 configurations.all {
   exclude group: "commons-logging"
@@ -17,24 +19,24 @@ configurations.all {
   exclude module: "servlet-api"
 }
 
-buildscript {
-  repositories {
-    add(new org.apache.ivy.plugins.resolver.URLResolver()) {
-      name = 'GitHub'
-      addArtifactPattern 'http://cloud.github.com/downloads/[organisation]/[module]/[module]-[revision].[ext]'
-    }
-  }
+//buildscript {
+//  repositories {
+//    add(new org.apache.ivy.plugins.resolver.URLResolver()) {
+//      name = 'GitHub'
+//      addArtifactPattern 'http://cloud.github.com/downloads/[organisation]/[module]/[module]-[revision].[ext]'
+//    }
+//  }
+//
+//  dependencies {
+//    classpath 'bmuschko:gradle-tomcat-plugin:0.9.5'
+//  }
+//}
 
-  dependencies {
-    classpath 'bmuschko:gradle-tomcat-plugin:0.9.5'
-  }
-}
-
-repositories {
-  maven { url "http://repo.springsource.org/libs-snapshot" }
-  maven { url "http://repo.springsource.org/libs-milestone" }
-  maven { url "http://repo.springsource.org/libs-release" }
-}
+//repositories {
+//  maven { url "http://repo.springsource.org/libs-snapshot" }
+//  maven { url "http://repo.springsource.org/libs-milestone" }
+//  maven { url "http://repo.springsource.org/libs-release" }
+//}
 
 dependencies {
 
@@ -71,24 +73,24 @@ dependencies {
   // Servlet 3.0
   providedCompile "javax.servlet:javax.servlet-api:3.0.1"
 
-  tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-         "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
-  tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
-    exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
-  }
+//  tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+//         "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+//  tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+//    exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+//  }
 }
 
-task wrapper(type: Wrapper) { gradleVersion = "1.1" }
+//task wrapper(type: Wrapper) { gradleVersion = "1.1" }
 
-idea {
-  project {
-    jdkName = "1.6"
-    languageLevel = "1.6"
-    ipr {
-      withXml { xml ->
-        xml.node.component.find { it.@name == "VcsDirectoryMappings" }.mapping.@vcs = "Git"
-        xml.node.component.find { it.@name == "ProjectRootManager" }.output.@url = "file://\$PROJECT_DIR\$/build"
-      }
-    }
-  }
-}
+//idea {
+//  project {
+//    jdkName = "1.6"
+//    languageLevel = "1.6"
+//    ipr {
+//      withXml { xml ->
+//        xml.node.component.find { it.@name == "VcsDirectoryMappings" }.mapping.@vcs = "Git"
+//        xml.node.component.find { it.@name == "ProjectRootManager" }.output.@url = "file://\$PROJECT_DIR\$/build"
+//      }
+//    }
+//  }
+//}
